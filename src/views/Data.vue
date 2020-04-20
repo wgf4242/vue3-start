@@ -11,11 +11,16 @@
 
     <h1>Ref</h1>
     <div>x: {{x}}</div>
+    <button @click="add">add</button>
+    
+    <hr>
+    <div>ctx a: {{a}}</div>
+
   </div>
 </template>
 
 <script>
-import { reactive, computed, ref } from "vue";
+import { reactive, computed, ref, watch, getCurrentInstance } from "vue";
 export default {
   name: "App",
   components: {
@@ -23,7 +28,10 @@ export default {
   },
 
   setup() {
-    const x = ref(0);
+    const { ctx } = getCurrentInstance();
+    console.log(ctx.$router.currentRoute.value);
+    const a = computed(() => ctx.$store.state.test.a)
+
     const state = reactive({
       count: 0,
       double: computed(() => state.count * 2)
@@ -33,7 +41,17 @@ export default {
       state.count++;
     }
 
-    return { x, state, increment };
+    const x = ref(0);
+    const add = () => x.value++;
+
+    watch(
+      () => x.value,
+      val => {
+        console.log(`count is ${val}`);
+      }
+    );
+
+    return { state, increment, x, add, a };
   }
 };
 </script>
