@@ -12,10 +12,12 @@
     <h1>Ref</h1>
     <div>x: {{x}}</div>
     <button @click="add">add</button>
-    
-    <hr>
-    <div>ctx a: {{a}}</div>
 
+    <hr />
+    <div>
+        <p>ctx a: {{a}}</p>
+        <button @click="update">update</button>
+    </div>
   </div>
 </template>
 
@@ -30,7 +32,7 @@ export default {
   setup() {
     const { ctx } = getCurrentInstance();
     console.log(ctx.$router.currentRoute.value);
-    const a = computed(() => ctx.$store.state.test.a)
+    const a = computed(() => ctx.$store.state.test.a);
 
     const state = reactive({
       count: 0,
@@ -51,7 +53,11 @@ export default {
       }
     );
 
-    return { state, increment, x, add, a };
+    const update = () => {
+      ctx.$store.commit("setTestA", x);
+    };
+
+    return { state, increment, x, add, a, update };
   }
 };
 </script>
