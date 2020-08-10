@@ -3,6 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <svg-icon icon-class="note" class-name="card-panel-icon" />
+
     </div>
     <router-view />
   </div>
