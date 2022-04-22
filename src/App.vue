@@ -14,6 +14,9 @@
         <router-link to="/router-transition2">router-transition2</router-link>|
         <router-link to="/router-transition3">router-transition3</router-link>|
       </div>
+      <div class="row">
+        <router-link to="/AsyncComponentView">AsyncComponentView</router-link>|
+      </div>
     </div>
     <router-view />
   </div>

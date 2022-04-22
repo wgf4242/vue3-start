@@ -19,6 +19,11 @@ const routes = [
   { path: "/RenderView", name: "RenderView", component: () => import("../views/RenderView.vue") },
   { path: "/Communication", name: "Communication", component: () => import("../views/Communication.vue") },
   { path: "/UseJsx", name: "UseJsx", component: () => import("../views/UseJsx.vue") },
+  {
+    path: "/AsyncComponentView",
+    name: "AsyncComponentView",
+    component: () => import("../views/AsyncComponentView.vue"),
+  },
   createRouterTransition("router-transition1"),
   createRouterTransition("router-transition2"),
   createRouterTransition("router-transition3"),
