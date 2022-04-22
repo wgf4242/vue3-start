@@ -1,4 +1,5 @@
 <template>
+   <!-- https://www.bilibili.com/video/BV1P44y1P7PE?p=3 -->
   <img :src="img" @load="done" class="image">
   <div ref="target">
     <AsyncCompVue v-if="show" />
