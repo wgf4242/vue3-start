@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <div class="mode">mode: {{env.MODE}}, dev: {{env.DEV}}, staging_title: {{env.VITE_APP_TITLE || ''}}</div>
+    <div>{{JSON.stringify(env)}}</div>
     <div id="nav">
       <div class="row">
         <router-link to="/">Home</router-link>|
@@ -21,6 +23,11 @@
     <router-view />
   </div>
 </template>
+<script setup>
+const meta = import.meta
+const env = import.meta.env
+debugger
+</script>
 
 <style>
 #app {
